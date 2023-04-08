@@ -1,5 +1,5 @@
-//#include "bits/stdc++.h"
-#include "/Library/Developer/CommandLineTools/usr/include/c++/v1/bits/stdc++.h"
+#include "bits/stdc++.h"
+//#include "/Library/Developer/CommandLineTools/usr/include/c++/v1/bits/stdc++.h"
 using namespace std;
 #define ll long long
 typedef pair<int,int> ii;
