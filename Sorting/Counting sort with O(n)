@@ -17,39 +17,40 @@ typedef map<int, int> mii;
 #define foru(j, a, b) for(int j = a; j <= b; ++j)
 #define ford(j ,a, b) for(int j= a; j >= b; --j)
 #define ld long double
-
-const int maxN = 1e8;
-int arr[maxN], n, times, value;
+const int maxN = 5000;
 vector<int> ans;
+mii counting; mii::iterator it;
+int arr[maxN], n, value, frequency;
 
-vector<int> counting_sort(int arr[], int n){
-    mii frequency; mii:: iterator it;
-
+void counting_sort(int arr[], int n, vector<int> &a){
     foru(j, 0, n - 1){
-        frequency[arr[j]]++;
+        counting[arr[j]]++;
     }
-    for(it = frequency.begin(); it != frequency.end(); it++){
-        times = it -> S;
+    for(it = counting.begin(); it != counting.end(); ++it){
         value = it -> F;
-        foru(j, 0, times - 1){
-            ans.push_back(value);
+        frequency = it -> S;
+
+        foru(j, 0, frequency - 1){
+            a.push_back(value);
         }
     }
-
-    return ans;
+    return;
+    
 }
+
 int main() {
     IOS
     //freopen("1.inp", "r", stdin);
     //freopen("1.out", "w", stdout);
-
     cin >> n;
     foru(j, 0, n - 1){
         cin >> arr[j];
     }
-    ans = counting_sort(arr, n);
+    counting_sort(arr, n, ans);
+
     foru(j, 0, ans.size() - 1){
-        cout << ans[j] << " ";
+        cout << ans[j] << " " ;
     }
+
     
 }
