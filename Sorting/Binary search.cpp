@@ -38,17 +38,14 @@ void counting_sort(int arr[], int n, vector<int> &a){
     
 }
 int binary_search(int l, int r, int num){
-    mid = (l + r)/2;
-    
-    
-    if(r >= l){
 
+    if(r >= l){
+        mid = (l + r)/2;
         if(arr[mid] == num) return mid;
         //cout << mid << " " << l << " " << r << endl;
-        if(arr[mid] < num) binary_search(mid + 1, r, num);
+        else if(arr[mid] < num)  return binary_search(mid + 1, r, num);
         
-        //cout << mid << ". " << l << " " << r << endl;
-        binary_search(l, mid - 1, num);
+        else return binary_search(l, mid - 1, num);
     }
 
     return -1;
@@ -59,12 +56,12 @@ int main() {
     //freopen("1.inp", "r", stdin);
     //freopen("1.out", "w", stdout);
     cin >> n >> num;
-    foru(j, 0, n - 1){
+    foru(j, 1, n){
         cin >> arr[j];
     }
     counting_sort(arr, n, ans);
 
-    cout << binary_search(0, n - 1, num);
+    cout << binary_search(1, n, num);
     
 }
 // time complexity O(n + logn)
