@@ -31,7 +31,7 @@ void bfs_func(int start){
     while(!bfs.empty()){
         int num = bfs.front();
         bfs.pop();
-        cout << num << endl;
+        //cout << num << endl;
 
         foru(j, 0, g[num].size() - 1){
             near = g[num][j];
