@@ -39,8 +39,12 @@ void push(int id, int l, int r){
 
 	//if not leaf
 	if(l != r){
-		lazy[id * 2] += lazy[id];
-		lazy[id * 2 + 1] += lazy[id];
+		lazy[id * 2] = lazy[id];
+		lazy[id * 2 + 1] = lazy[id];
+		
+		int mid = (l + r) >> 1;
+		st[id * 2] = mid - l + 1;
+		st[id * 2 + 1] = r - mid;
 	}	
 
 	lazy[id] = 0;
