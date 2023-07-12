@@ -57,7 +57,7 @@ void build(){
 }
 int get_LCA(int l, int r){
 	int luy_thua = log_2(r - l + 1);
-	pair<int, int> x = min(sparse_tb[luy_thua][l], sparse_tb[luy_thua][r - luy_thua]);
+	pair<int, int> x = min(sparse_tb[luy_thua][l], sparse_tb[luy_thua][r - luy_thua + 1]);
    return x.second;
 }
 
